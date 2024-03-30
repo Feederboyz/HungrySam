@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+import express from "express";
+import upath from "upath";
+import { fileURLToPath } from 'url';
+
+const port = 3000; // TODO
+const app = express();
+
+
+app.use(express.static(upath.join(upath.dirname(fileURLToPath(import.meta.url)), '../dist')));
+
+app.get("/", (req, res) => {
+    res.sendFile("./index.html");
+})
+
+app.listen(port, () => {
+    console.log(`Port ${port} has been listening.`);
+})
