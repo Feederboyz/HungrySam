@@ -7,11 +7,17 @@ const port = 3000; // TODO
 const app = express();
 
 
-app.use(express.static(upath.join(upath.dirname(fileURLToPath(import.meta.url)), '../dist')));
+const __dirname = upath.dirname(fileURLToPath(import.meta.url));
+const distPath = upath.join(__dirname, '../dist');
+app.use(express.static(distPath));
 
 app.get("/", (req, res) => {
-    res.sendFile("./index.html");
-})
+    res.sendFile("index.html", { root: distPath });
+});
+
+app.get("/about", (req, res) => {
+    res.sendFile("about.html", { root: distPath });
+});
 
 app.listen(port, () => {
     console.log(`Port ${port} has been listening.`);
