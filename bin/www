@@ -8,15 +8,19 @@ const app = express();
 
 
 const __dirname = upath.dirname(fileURLToPath(import.meta.url));
-const distPath = upath.join(__dirname, '../dist');
+// const distPath = upath.join(__dirname, '../dist');
+const viewsPath = upath.join(__dirname, '../src/ejs');
 app.use(express.static(distPath));
+app.set("views", viewsPath);
 
 app.get("/", (req, res) => {
-    res.sendFile("index.html", { root: distPath });
+    // res.sendFile("index.html", { root: distPath });
+    res.render("index.ejs",);
 });
 
 app.get("/about", (req, res) => {
-    res.sendFile("about.html", { root: distPath });
+    // res.sendFile("about.html", { root: distPath });
+    res.render("about.ejs",);
 });
 
 app.listen(port, () => {
