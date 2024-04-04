@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh">
     <head>
         <meta charset="UTF-8" />
@@ -11,10 +11,11 @@
             crossorigin="anonymous"
         />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="css/bootstrap.css" />
     </head>
-    <body>
+    <body data-bs-theme="dark">
         <header>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <nav class="navbar navbar-expand-lg bg-black">
                 <div class="container-fluid px-5">
                     <a class="navbar-brand" href="#">Hungry Sam</a>
                     <button
@@ -28,14 +29,37 @@
                     >
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <div
+                        class="collapse navbar-collapse"
+                        id="navbarNavDropdown"
+                    >
                         <div class="navbar-nav ms-auto">
                             <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
-                            <a class="nav-link" href="/">Home</a>
-                            <a class="nav-link" href="/about">About Me</a>
-                            <a class="nav-link" href="/posts">Posts</a>
+                            <a
+                                class="nav-link <% if (activePage === 'index') { %> active"
+                                aria-current="page
+                                <% } %>"
+                                href="/"
+                                >Home</a
+                            >
+                            <a
+                                class="nav-link <% if (activePage === 'about') { %> active"
+                                aria-current="page
+                                <% } %>"
+                                href="/about"
+                                >About Me</a
+                            >
+                            <a
+                                class="nav-link <% if (activePage === 'posts') { %> active"
+                                aria-current="page
+                                <% } %>"
+                                href="/posts"
+                                >Posts</a
+                            >
                         </div>
                     </div>
                 </div>
             </nav>
         </header>
+    </body>
+</html>

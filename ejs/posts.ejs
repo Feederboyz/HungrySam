@@ -1,0 +1,19 @@
+<%- include("./partials/header.ejs", {activePage: activePage}) %>
+
+<div class="container">
+    <div class="row align-items-center d-flex">
+        <% posts.forEach((post) => { %>
+            <div class="col-xl-4 col-md-6 col-xs-12">
+                <div class="card" id="<%= post.id %>">
+                    <img src="http://via.placeholder.com/200x60" class="card-img-top" alt="Post Cover">
+                    <!-- <img src=cover/<%= post.id %> class="card-img-top" alt="Post Cover"> -->
+                    <div class="card-body">
+                        <h5 class="card-title"><%= post.title %></h5>
+                        <p class="card-text"><%= post.content %></p>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+<%- include("./partials/footer.ejs") %>

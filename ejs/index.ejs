@@ -1,4 +1,4 @@
-<%- include("./partials/header.ejs") %>
+<%- include("./partials/header.ejs", {activePage: activePage}) %>
 
 <div class="container">
     <div class="row px-5 align-items-center d-flex">
@@ -10,9 +10,10 @@
         </div>
         <div class="col-xl-7">
             <div class="d-flex justify-content-center">
-                <img src="https://picsum.photos/400/600" alt="Sam" />
+                <img src="http://via.placeholder.com/400x600" alt="Sam"/>
             </div>
         </div>
     </div>
 </div>
+
 <%- include("./partials/footer.ejs") %>
