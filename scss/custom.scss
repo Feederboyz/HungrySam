@@ -1,0 +1,22 @@
+@import "../node_modules/bootswatch/dist/lux/variables";
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootswatch/dist/lux/bootswatch";
+
+.masthead {
+    padding-top: 10.5rem;
+    padding-bottom: 6rem;
+    background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../images/masthead.png);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+}
+
+.masthead {
+  h1, h2 {
+    color: white;
+    text-align: center;
+    text-decoration-color: rgb(255, 255, 255);
+  }
+}
