@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 
 router.get("/:id(\\d+)", async (req, res) => {
     const id = req.params.id;
-    const result = await db.query('SELECT * FROM posts WHERE id=$1', [id]);
+    const result = await db.query('SELECT content, title FROM posts WHERE id=$1', [id]);
     const content = result.rows[0].content;
     const title = result.rows[0].title;
     res.render("post.ejs", { title: title, content: content, activePage: 'posts'});
