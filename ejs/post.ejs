@@ -1,8 +1,54 @@
 <%- include("./partials/header.ejs"), {activePage: activePage} %>
 
-<div class="container-fluid text-center py-5">
-    <h2><%= title %></h2>
-    <p><%= content %></p>
+<div class="container  py-5">
+    <div class="text-center">
+        <h2><%= post.title %></h2>
+        <br/>
+        <p><%= post.content %></p>
+    </div>
+    <br/>
+    <hr/>
+    <h2 class="text-center"> REPLIES </h2>
+    <% if(locals.replies){ %>
+        <% replies.forEach((reply) => { %>
+            <div class="d-flex py-3">
+                <div class="flex-shrink-0">
+                    <img class='avatar' src=<%= usersInfo[reply.userid].url %> alt="avatar">
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h5><%= usersInfo[reply.userid].name %></h5>
+                    <p><%= reply.content %></p>
+                </div>
+            </div>
+            <br/>
+        <% }); %>
+    <% } else { %>
+        <p> No posts :(</p>
+    <% }%>
+    <hr/>
+        <form action="/test" method="POST">
+            <div class="d-flex justify-content-center">
+                <div class="reply-container">
+                    <div class="w-100 d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                            <img class='avatar' src=https://picsum.photos/30/30 alt="avatar">
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <div>Fake name</div>
+                        </div>
+                    </div>
+                    <div class="w-100 py-3">
+                        <textarea class="w-100 form-control" name="reply" rows="10" placeholder="What are your thought?"></textarea>
+                    </div>
+                    <div class="w-100 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-outline-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- <div style="width: 100%; max-width: 500px; background-color: red;">test</div> -->
+
 </div>
+
 
 <%- include("./partials/footer.ejs") %>
