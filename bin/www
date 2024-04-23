@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import app from "../app.js";
-import db from "../scripts/db.js";
+import db from "../scripts/services/db.js";
 
 await db.connect();
 const port = 3000;

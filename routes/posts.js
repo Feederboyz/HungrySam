@@ -1,5 +1,5 @@
 import express from "express";
-import db from "../scripts/db.js";
+import db from "../scripts/services/db.js";
 import multer from "multer";
 const router = express.Router();
 

@@ -8,7 +8,7 @@ import indexRouter from "./routes/index.js";
 import coverRouter from "./routes/cover.js";
 import authRouter from "./routes/auth.js";
 import loginRouter from "./routes/login.js";
-import passport from "./scripts/passport.js";
+import passport from "./scripts/services/passport.js";
 
 const app = express();
 

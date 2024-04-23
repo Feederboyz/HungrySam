@@ -5,10 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "npm run clean && npm run build:scss",
-    "clean": "node scripts/clean.js",
-    "build:ejs": "node scripts/build-ejs.js",
-    "build:scss": "node scripts/build-scss.js",
+    "build": "npm run clean && npm run build:scss && npm run build:component",
+    "clean": "node scripts/init/clean.js",
+    "build:scss": "node scripts/init/build-scss.js",
+    "build:component": "node scripts/init/build-component.js",
     "start": "npm run build && node ./bin/www"
   },
   "keywords": [],
