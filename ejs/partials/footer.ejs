@@ -7,13 +7,13 @@
                 Releaf Studio. All Rights Reserved.</small
             >
         </footer>
+        <script
+            src="/js/bootstrap.min.js"
+            crossorigin="anonymous"
+        ></script>
         <% if(locals.scripts) { %>
         <% scripts.forEach((script) => {%>
             <script src="<%= script %>"></script>
         <%})}%>
-        <script
-            src="./js/bootstrap.min.js"
-            crossorigin="anonymous"
-        ></script>
     </body>
 </html>

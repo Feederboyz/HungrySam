@@ -1,0 +1,27 @@
+<%- include("./partials/header.ejs"), {activePage: activePage} %>
+
+<div class="container py-5">
+    <form action="/posts/add_post" method="POST" enctype="multipart/form-data">
+        <div class="py-3 w-100">
+            <label class="form-label" for="title">Title:</label>
+            <br/>
+            <input class="w-100 form-control" type="text" id="title" name="title" required>
+        </div>
+        <div class="py-3 w-100"> 
+            <label class="form-label" for="content">Content:</label>
+            <br/>
+            <textarea class="w-100 form-control" id="content" name="content" rows="5" required></textarea>
+        </div>
+        <div class="py-3 w-100">
+            <label class="form-label" for="thumbnail">Thumbnail:</label>
+            <br/>
+            <input class="w-100 form-control" type="file" id="thumbnail" name="thumbnail" accept="image/*" required>
+            <small class="form-text text-muted"> Don't upload file with chinese characters. Plz :)</small>
+        </div>
+        <div class="py-3 w-100">
+            <button class="btn btn-outline-primary" type="submit">Sumbit</button>
+        </div>
+    </form>
+</div>
+
+<%- include("./partials/footer.ejs") %>

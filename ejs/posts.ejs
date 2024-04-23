@@ -5,10 +5,9 @@
         <% posts.forEach((post) => { %>
             <div class="col-xl-4 col-md-6 col-xs-12 ">
                 <div class="card border-primary text-center mb-3" id="<%= post.id %>">
-                    <div class='aspect-ratio-2-1'>
-                        <img src="https://picsum.photos/400/200" class="card-img-top px-1 py-1" alt="Post Cover">
+                    <div class='aspect-ratio-1-1'>
+                        <img src="<%= post.thumbnail_url %>" class="card-img-top px-1 py-1" alt="Post Cover">
                     </div>
-                    <!-- <img src=cover/<%= post.id %> class="card-img-top img-fluid" alt="Post Cover"> -->
                     <div class="card-body py-4">
                         <h5 class="card-title"><%= post.title %></h5>
                     </div>

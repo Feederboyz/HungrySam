@@ -1,0 +1,29 @@
+<%- include("./partials/header.ejs"), {activePage: activePage} %>
+
+<div class="container text-center py-5">
+    <h2>Join Sam. Being Sam.</h2>
+    <a class="w-100" href="/auth/google">
+        <button class="w-100 d-flex justify-content-center align-items-center btn btn-primary my-2 w-50 " type="button">
+            <img class="mx-3" src="/images/google-symbol.png" alt="google">
+            Sign in with Google
+        </button>
+    </a>
+</div>
+
+<% if (typeof modalMessage !== 'undefined') { %>
+    </div>
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="authErrorToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">&#128544</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    <%= modalMessage %>
+                </div>
+            </div>
+        </div>
+    </div>
+<% } %>
+
+<%- include("./partials/footer.ejs") %>

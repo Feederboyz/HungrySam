@@ -4,50 +4,71 @@
     <div class="text-center">
         <h2><%= post.title %></h2>
         <br/>
-        <p><%= post.content %></p>
+        <%- post.content %>
     </div>
+    <% if (post.thumbnail_url !== undefined) { %>
+        <div class="d-flex justify-content-center my-5">
+            <img class="w-50" src=<%= post.thumbnail_url %> alt="thumbnail">
+        </div>
+    <% } %>
     <br/>
     <hr/>
-    <h2 class="text-center"> REPLIES </h2>
-    <% if(locals.replies){ %>
-        <% replies.forEach((reply) => { %>
-            <div class="d-flex py-3">
+    <h2 class="text-center"> COMMENTS </h2>
+    <% if(comments.length !== 0){ %>
+        <% comments.forEach((comment) => { %>
+            <div class="d-flex py-3 w-100">
                 <div class="flex-shrink-0">
-                    <img class='avatar' src=<%= usersInfo[reply.userid].url %> alt="avatar">
+                    <img class='avatar' src=<%= usersInfo[comment.user_id].avatar_url %> alt="avatar" style="width: 30px; height: 30px;">
                 </div>
                 <div class="flex-grow-1 ms-3">
-                    <h5><%= usersInfo[reply.userid].name %></h5>
-                    <p><%= reply.content %></p>
+                    <h5><%= usersInfo[comment.user_id].name %></h5>
+                    <p><%= comment.content %></p>
+                </div>
+                <div class="d-flex flex-column flex-shrink-0">
+                    <button class="btn btn-outline-danger" data-del-btn="<%= comment.id %>">Delete</button>
+                    <button class="btn btn-outline-primary" data-edit-btn="<%= comment.id %>">Edit</button>
                 </div>
             </div>
+            <!-- Edit field -->
+            <div class="d-flex py-3 w-100">
+                <form class="w-100" action="/posts/<%= post.id %>/comments/<%= comment.id %>" method="POST" data-edit-field="<%= comment.id %>" style="display: none;">
+                    <div class="w-100 py-3">
+                        <textarea class="w-100 form-control" name="content" rows="5" placeholder="What are your thought?" required></textarea>
+                    </div>
+                    <div class="w-100 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-outline-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+            <!-- End of edit field -->
             <br/>
         <% }); %>
     <% } else { %>
-        <p> No posts :(</p>
+        <p class="text-center"> No posts :(</p>
     <% }%>
     <hr/>
-        <form action="/test" method="POST">
-            <div class="d-flex justify-content-center">
-                <div class="reply-container">
-                    <div class="w-100 d-flex align-items-center">
-                        <div class="flex-shrink-0">
-                            <img class='avatar' src=https://picsum.photos/30/30 alt="avatar">
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-                            <div>Fake name</div>
-                        </div>
+        <% if(!loggedIn) { %> 
+            <div class="text-center">
+                <p> Please login to comment this post </p>
+            </div>
+        <% } else { %>
+            <form action="/posts/<%= post.id %>/comments" method="POST">
+                <div class="w-100 d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                        <img class='avatar' src='<%= user.avatar_url %>' alt="avatar" style="width: 30px; height: 30px;">
                     </div>
-                    <div class="w-100 py-3">
-                        <textarea class="w-100 form-control" name="reply" rows="10" placeholder="What are your thought?"></textarea>
-                    </div>
-                    <div class="w-100 d-flex justify-content-end">
-                        <button type="submit" class="btn btn-outline-primary">Submit</button>
+                    <div class="flex-grow-1 ms-3">
+                        <%= user.username %>
                     </div>
                 </div>
-            </div>
-        </form>
-        <!-- <div style="width: 100%; max-width: 500px; background-color: red;">test</div> -->
-
+                <div class="w-100 py-3">
+                    <textarea class="w-100 form-control" name="content" rows="10" placeholder="What are your thought?" required></textarea>
+                </div>
+                <div class="w-100 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-outline-primary">Submit</button>
+                </div>
+            </form>
+        <% }%>
 </div>
 
 

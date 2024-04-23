@@ -2,19 +2,14 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import "../node_modules/bootswatch/dist/lux/bootswatch";
 
-.reply-container{
-  max-width: 600px;
-  width: 100%;
-}
-
-.aspect-ratio-2-1 {
+.aspect-ratio-1-1 {
   position: relative;
   width: 100%; 
-  padding-top: 50%; 
+  padding-top: 100%; 
   overflow: hidden;
 }
 
-.aspect-ratio-2-1 > img {
+.aspect-ratio-1-1 > img {
   position: absolute;
   top: 0;
   left: 0;
@@ -25,16 +20,14 @@
 }
 
 .avatar {
-  width: 50px;
-  height: 50px;
   object-fit: contain; 
   object-position: center; 
   border-radius: 50%;
 }
 
 .masthead {
-    padding-top: 10.5rem;
-    padding-bottom: 6rem;
+    padding-top: 13rem;
+    padding-bottom: 13rem;
     background-image: 
     linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url(../images/masthead.png);
