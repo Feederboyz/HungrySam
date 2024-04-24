@@ -76,10 +76,8 @@ router.post(
                 const title = req.body.title;
                 // replace new line with <br> tag
                 const content = req.body.content.replace(/\n/g, "<br/>");
-                const host = req.get("host");
-                const currentUrl = `${req.protocol}://${host}/`;
                 const thumbnailUrl = req.file
-                    ? currentUrl + `uploads/images/${req.file.filename}`
+                    ? `uploads/images/${req.file.filename}`
                     : null;
 
                 const query =
