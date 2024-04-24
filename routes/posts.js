@@ -77,7 +77,7 @@ router.post(
                 // replace new line with <br> tag
                 const content = req.body.content.replace(/\n/g, "<br/>");
                 const thumbnailUrl = req.file
-                    ? `uploads/images/${req.file.filename}`
+                    ? `/uploads/images/${req.file.filename}`
                     : null;
 
                 const query =
