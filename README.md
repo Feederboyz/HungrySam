@@ -16,6 +16,8 @@
 - **Express**
 
 ## 快速啟動
+```
 git clone https://github.com/Feederboyz/HungrySam.git
 npm install
 node start
+```
