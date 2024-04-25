@@ -11774,4 +11774,9 @@ th {
   text-decoration-color: rgb(255, 255, 255);
 }
 
+#map {
+  height: 400px;
+  width: 100%;
+}
+
 /*# sourceMappingURL=index.css.map */

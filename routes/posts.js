@@ -104,6 +104,7 @@ router.get("/:postId(\\d+)", async (req, res) => {
     const scripts = [
         "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js",
         "/js/post.js",
+        "/js/googleMap.js",
     ];
     res.render("post.ejs", {
         post: post,

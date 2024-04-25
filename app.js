@@ -8,6 +8,7 @@ import indexRouter from "./routes/index.js";
 import coverRouter from "./routes/cover.js";
 import authRouter from "./routes/auth.js";
 import loginRouter from "./routes/login.js";
+import apiRouter from "./routes/api.js";
 import passport from "./scripts/services/passport.js";
 
 const app = express();
@@ -42,5 +43,6 @@ app.use("/posts", postsRouter);
 app.use("/cover", coverRouter);
 app.use("/auth", authRouter);
 app.use("/login", loginRouter);
+app.use("/api", apiRouter);
 
 export default app;
